@@ -3663,7 +3663,7 @@ module.exports = function(Chart) {
 		currentStep: 0, // the current animation step
 		numSteps: 60, // default number of steps
 		easing: '', // the easing to use for this animation
-		render: null, // render function used by the animation service
+		render: null, // render function used by the animation serviceBoroznaES
 
 		onAnimationProgress: null, // user specified callback to fire on each step of the animation
 		onAnimationComplete: null, // user specified callback to fire when the animation finishes
@@ -3836,7 +3836,7 @@ module.exports = function(Chart) {
 	Chart.controllers = {};
 
 	/**
-	 * Initializes the given config with global and chart default values.
+	 * Initializes the given configBoroznaES with global and chart default values.
 	 */
 	function initConfig(config) {
 		config = config || {};
@@ -3856,7 +3856,7 @@ module.exports = function(Chart) {
 	}
 
 	/**
-	 * Updates the config of the chart
+	 * Updates the configBoroznaES of the chart
 	 * @param chart {Chart} chart to update the options for
 	 */
 	function updateConfig(chart) {
@@ -3916,12 +3916,12 @@ module.exports = function(Chart) {
 			 * @private
 			 */
 			me.chart = me;
-			me.controller = me; // chart.chart.controller #inception
+			me.controller = me; // chart.chart.controllerBoroznaES #inception
 
 			// Add the chart instance to the global namespace
 			Chart.instances[me.id] = me;
 
-			// Define alias to the config data: `chart.data === chart.config.data`
+			// Define alias to the configBoroznaES data: `chart.data === chart.configBoroznaES.data`
 			Object.defineProperty(me, 'data', {
 				get: function() {
 					return me.config.data;
@@ -3933,7 +3933,7 @@ module.exports = function(Chart) {
 
 			if (!context || !canvas) {
 				// The given item is not a compatible context2d element, let's return before finalizing
-				// the chart initialization but after setting basic chart / controller properties that
+				// the chart initialization but after setting basic chart / controllerBoroznaES properties that
 				// can help to figure out that the chart is not valid (e.g chart.canvas !== null);
 				// https://github.com/chartjs/Chart.js/issues/2807
 				console.error("Failed to create chart: can't acquire context from the given item");
@@ -5123,7 +5123,7 @@ function interpolate(start, view, model, ease) {
 
 		target = model[key];
 
-		// if a value is added to the model after pivot() has been called, the view
+		// if a value is added to the modelBoroznaES after pivot() has been called, the view
 		// doesn't contain it, so let's initialize the view to the target value.
 		if (!view.hasOwnProperty(key)) {
 			view[key] = target;
@@ -5245,7 +5245,7 @@ module.exports = function(Chart) {
 				var sval = source[key];
 
 				if (key === 'scales') {
-					// scale config merging is complex. Add our own function here for that
+					// scale configBoroznaES merging is complex. Add our own function here for that
 					target[key] = helpers.scaleMerge(tval, sval);
 				} else if (key === 'scale') {
 					// used in polar area & radar charts since there is only one scale
@@ -5294,7 +5294,7 @@ module.exports = function(Chart) {
 
 	helpers.where = function(collection, filterCallback) {
 		if (helpers.isArray(collection) && Array.prototype.filter) {
-			return collection.filter(filterCallback);
+			return filterBoroznaES(filterCallback);
 		}
 		var filtered = [];
 
@@ -5634,7 +5634,7 @@ module.exports = function(Chart) {
 		var height = boundingRect.bottom - boundingRect.top - paddingTop - paddingBottom;
 
 		// We divide by the current device pixel ratio, because the canvas is scaled up by that amount in each direction. However
-		// the backend model is in unscaled coordinates. Since we are going to deal with our model coordinates, we go back here
+		// the backend modelBoroznaES is in unscaled coordinates. Since we are going to deal with our modelBoroznaES coordinates, we go back here
 		mouseX = Math.round((mouseX - boundingRect.left - paddingLeft) / (width) * canvas.width / chart.currentDevicePixelRatio);
 		mouseY = Math.round((mouseY - boundingRect.top - paddingTop) / (height) * canvas.height / chart.currentDevicePixelRatio);
 
@@ -5886,7 +5886,7 @@ function parseVisibleItems(chart, handler) {
 
 /**
  * Helper function to get the items that intersect the event position
- * @param items {ChartElement[]} elements to filter
+ * @param items {ChartElement[]} elements to filterBoroznaES
  * @param position {Point} the point to be nearest to
  * @return {ChartElement[]} the nearest items
  */
@@ -6266,9 +6266,9 @@ function sortByWeight(array, reverse) {
  * @prop {Number} bottom - Bottom edge of the item. Set by layout system and cannot be used in update
  */
 
-// The layout service is very self explanatory.  It's responsible for the layout within a chart.
-// Scales, Legends and Plugins all rely on the layout service and can easily register to be placed anywhere they need
-// It is this service's responsibility of carrying out that layout.
+// The layout serviceBoroznaES is very self explanatory.  It's responsible for the layout within a chart.
+// Scales, Legends and Plugins all rely on the layout serviceBoroznaES and can easily register to be placed anywhere they need
+// It is this serviceBoroznaES's responsibility of carrying out that layout.
 module.exports = {
 	defaults: {},
 
@@ -6653,7 +6653,7 @@ defaults._set('global', {
 });
 
 /**
- * The plugin service singleton
+ * The plugin serviceBoroznaES singleton
  * @namespace Chart.plugins
  * @since 2.1.0
  */
@@ -7980,7 +7980,7 @@ module.exports = function(Chart) {
 		// Use a registration function so that we can move to an ES6 map when we no longer need to support
 		// old browsers
 
-		// Scale config defaults
+		// Scale configBoroznaES defaults
 		defaults: {},
 		registerScaleType: function(type, scaleConstructor, scaleDefaults) {
 			this.constructors[type] = scaleConstructor;
@@ -8207,7 +8207,7 @@ module.exports = function(Chart) {
 		return base;
 	}
 
-	// Private helper to create a tooltip item model
+	// Private helper to create a tooltip item modelBoroznaES
 	// @param element : the chart element (point, arc, bar) to create the tooltip item for
 	// @return : new tooltip item
 	function createTooltipItem(element) {
@@ -8227,7 +8227,7 @@ module.exports = function(Chart) {
 	}
 
 	/**
-	 * Helper to get the reset model for the tooltip
+	 * Helper to get the reset modelBoroznaES for the tooltip
 	 * @param tooltipOpts {Object} the tooltip options
 	 */
 	function getBaseModel(tooltipOpts) {
@@ -8555,8 +8555,8 @@ module.exports = function(Chart) {
 			var me = this;
 			var opts = me._options;
 
-			// Need to regenerate the model because its faster than using extend and it is necessary due to the optimization in Chart.Element.transition
-			// that does _view = _model if ease === 1. This causes the 2nd tooltip update to set properties in both the view and model at the same time
+			// Need to regenerate the modelBoroznaES because its faster than using extend and it is necessary due to the optimization in Chart.Element.transition
+			// that does _view = _model if ease === 1. This causes the 2nd tooltip update to set properties in both the view and modelBoroznaES at the same time
 			// which breaks any animations.
 			var existingModel = me._model;
 			var model = me._model = getBaseModel(opts);
@@ -8596,10 +8596,10 @@ module.exports = function(Chart) {
 					tooltipItems.push(createTooltipItem(active[i]));
 				}
 
-				// If the user provided a filter function, use it to modify the tooltip items
-				if (opts.filter) {
+				// If the user provided a filterBoroznaES function, use it to modify the tooltip items
+				if (filterBoroznaES) {
 					tooltipItems = tooltipItems.filter(function(a) {
-						return opts.filter(a, data);
+						return filterBoroznaES(a, data);
 					});
 				}
 
@@ -10061,7 +10061,7 @@ var helpers = {
 	},
 
 	/**
-	 * Basic javascript inheritance based on the model created in Backbone.js
+	 * Basic javascript inheritance based on the modelBoroznaES created in Backbone.js
 	 */
 	inherits: function(extensions) {
 		var me = this;
@@ -10553,7 +10553,7 @@ function readUsedSize(element, property) {
 
 /**
  * Initializes the canvas style and render size without modifying the canvas display size,
- * since responsiveness is handled by the controller.resize() method. The config is used
+ * since responsiveness is handled by the controllerBoroznaES.resize() method. The configBoroznaES is used
  * to determine the aspect ratio to apply in case no explicit height has been specified.
  */
 function initCanvas(canvas, config) {
@@ -11158,7 +11158,7 @@ function computeBoundary(source) {
 	}
 
 	// Backward compatibility: until v3, we still need to support boundary values set on
-	// the model (scaleTop, scaleBottom and scaleZero) because some external plugins and
+	// the modelBoroznaES (scaleTop, scaleBottom and scaleZero) because some external plugins and
 	// controllers might still use it (e.g. the Smith chart).
 
 	if (fill === 'start') {
@@ -11391,7 +11391,7 @@ defaults._set('global', {
 			var ci = this.chart;
 			var meta = ci.getDatasetMeta(index);
 
-			// See controller.isDatasetVisible comment
+			// See controllerBoroznaES.isDatasetVisible comment
 			meta.hidden = meta.hidden === null ? !ci.data.datasets[index].hidden : null;
 
 			// We hid a dataset ... rerender the chart
@@ -12204,7 +12204,7 @@ module.exports = {
 
 module.exports = function(Chart) {
 
-	// Default config for a category scale
+	// Default configBoroznaES for a category scale
 	var defaultConfig = {
 		position: 'bottom'
 	};

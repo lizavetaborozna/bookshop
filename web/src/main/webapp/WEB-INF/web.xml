@@ -5,7 +5,7 @@
          version="3.1">
     <servlet>
         <servlet-name>RegistrationServlet</servlet-name>
-        <servlet-class>controller.RegistrationServlet</servlet-class>
+        <servlet-class>controllerBoroznaES.RegistrationServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>RegistrationServlet</servlet-name>
@@ -14,7 +14,7 @@
 
     <servlet>
         <servlet-name>AuthorizationServlet</servlet-name>
-        <servlet-class>controller.AuthorizationServlet</servlet-class>
+        <servlet-class>controllerBoroznaES.AuthorizationServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AuthorizationServlet</servlet-name>
@@ -23,7 +23,7 @@
 
     <filter>
         <filter-name>logFilter</filter-name>
-        <filter-class>filter.AuthorizationFilter</filter-class>
+        <filter-class>filterBoroznaES.AuthorizationFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>logFilter</filter-name>
@@ -36,7 +36,7 @@
 
     <servlet>
         <servlet-name>ExitServlet</servlet-name>
-        <servlet-class>controller.LogOutServlet</servlet-class>
+        <servlet-class>controllerBoroznaES.LogOutServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ExitServlet</servlet-name>
@@ -46,7 +46,7 @@
 
     <servlet>
         <servlet-name>UserCatalogServlet</servlet-name>
-        <servlet-class>controller.UserCatalogServlet</servlet-class>
+        <servlet-class>controllerBoroznaES.UserCatalogServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>UserCatalogServlet</servlet-name>
@@ -55,7 +55,7 @@
 
     <servlet>
         <servlet-name>UserCatalogSort</servlet-name>
-        <servlet-class>controller.UserCatalogSort</servlet-class>
+        <servlet-class>controllerBoroznaES.UserCatalogSort</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>UserCatalogSort</servlet-name>
@@ -64,7 +64,7 @@
 
     <servlet>
         <servlet-name>UserCatalogSale</servlet-name>
-        <servlet-class>controller.UserCatalogSale</servlet-class>
+        <servlet-class>controllerBoroznaES.UserCatalogSale</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>UserCatalogSale</servlet-name>
@@ -74,7 +74,7 @@
 
     <servlet>
         <servlet-name>UserCatalogSearch</servlet-name>
-        <servlet-class>controller.UserCatalogSearch</servlet-class>
+        <servlet-class>controllerBoroznaES.UserCatalogSearch</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>UserCatalogSearch</servlet-name>
@@ -84,7 +84,7 @@
 
     <servlet>
         <servlet-name>UserCartServlet</servlet-name>
-        <servlet-class>controller.UserCartServlet</servlet-class>
+        <servlet-class>controllerBoroznaES.UserCartServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>UserCartServlet</servlet-name>
@@ -93,7 +93,7 @@
 
     <servlet>
         <servlet-name>UserOrderServlet</servlet-name>
-        <servlet-class>controller.UserOrderServlet</servlet-class>
+        <servlet-class>controllerBoroznaES.UserOrderServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>UserOrderServlet</servlet-name>
@@ -102,7 +102,7 @@
 
     <servlet>
         <servlet-name>UserOrderAddServlet</servlet-name>
-        <servlet-class>controller.UserOrderAddServlet</servlet-class>
+        <servlet-class>controllerBoroznaES.UserOrderAddServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>UserOrderAddServlet</servlet-name>
@@ -111,7 +111,7 @@
 
     <servlet>
         <servlet-name>UserOrderDeleteServlet</servlet-name>
-        <servlet-class>controller.UserOrderDeleteServlet</servlet-class>
+        <servlet-class>controllerBoroznaES.UserOrderDeleteServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>UserOrderDeleteServlet</servlet-name>
@@ -120,7 +120,7 @@
 
     <servlet>
         <servlet-name>AdminServlet</servlet-name>
-        <servlet-class>controller.AdminOrdersServlet</servlet-class>
+        <servlet-class>controllerBoroznaES.AdminOrdersServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AdminServlet</servlet-name>
@@ -128,7 +128,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>AdminBookAddServlet</servlet-name>
-        <servlet-class>controller.AdminBookAddServlet</servlet-class>
+        <servlet-class>controllerBoroznaES.AdminBookAddServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AdminBookAddServlet</servlet-name>
@@ -137,7 +137,7 @@
 
     <servlet>
         <servlet-name>AdminOrderDeleteServlet</servlet-name>
-        <servlet-class>controller.AdminOrderDeleteServlet</servlet-class>
+        <servlet-class>controllerBoroznaES.AdminOrderDeleteServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AdminOrderDeleteServlet</servlet-name>
@@ -145,7 +145,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>AdminOrderChangeServlet</servlet-name>
-        <servlet-class>controller.AdminOrderChangeServlet</servlet-class>
+        <servlet-class>controllerBoroznaES.AdminOrderChangeServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AdminOrderChangeServlet</servlet-name>
@@ -154,7 +154,7 @@
 
     <servlet>
         <servlet-name>AdminLookingUsersServlet</servlet-name>
-        <servlet-class>controller.AdminLookingUsersServlet</servlet-class>
+        <servlet-class>controllerBoroznaES.AdminLookingUsersServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AdminLookingUsersServlet</servlet-name>
@@ -163,7 +163,7 @@
 
     <servlet>
         <servlet-name>AdminUsersDeleteServlet</servlet-name>
-        <servlet-class>controller.AdminUsersDeleteServlet</servlet-class>
+        <servlet-class>controllerBoroznaES.AdminUsersDeleteServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AdminUsersDeleteServlet</servlet-name>
@@ -172,7 +172,7 @@
 
     <servlet>
         <servlet-name>ChartServlet</servlet-name>
-        <servlet-class>controller.ChartServlet</servlet-class>
+        <servlet-class>controllerBoroznaES.ChartServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ChartServlet</servlet-name>
@@ -182,7 +182,7 @@
 
     <servlet>
         <servlet-name>ChartPieServlet</servlet-name>
-        <servlet-class>controller.ChartPieServlet</servlet-class>
+        <servlet-class>controllerBoroznaES.ChartPieServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ChartPieServlet</servlet-name>
@@ -192,7 +192,7 @@
 
     <servlet>
         <servlet-name>AdminReportServlet</servlet-name>
-        <servlet-class>controller.AdminReportServlet</servlet-class>
+        <servlet-class>controllerBoroznaES.AdminReportServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AdminReportServlet</servlet-name>
@@ -202,7 +202,7 @@
 
     <servlet>
         <servlet-name>UserCardServlet</servlet-name>
-        <servlet-class>controller.UserCardServlet</servlet-class>
+        <servlet-class>controllerBoroznaES.UserCardServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>UserCardServlet</servlet-name>
@@ -210,7 +210,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>UserAddCardServlet</servlet-name>
-        <servlet-class>controller.UserAddCardServlet</servlet-class>
+        <servlet-class>controllerBoroznaES.UserAddCardServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>UserAddCardServlet</servlet-name>

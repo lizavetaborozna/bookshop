@@ -1,13 +1,10 @@
 <component name="ArtifactManager">
-  <artifact name="service:jar">
+  <artifact type="jar" name="service:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/service_jar</output-path>
-    <root id="root">
-      <element id="archive" name="service.jar">
-        <element id="module-output" name="service" />
-        <element id="module-output" name="repository" />
-      </element>
-      <element id="library" level="project" name="Maven: mysql:mysql-connector-java:8.0.11" />
-      <element id="library" level="project" name="Maven: com.google.protobuf:protobuf-java:2.6.0" />
+    <root id="archive" name="service.jar">
+      <element id="module-output" name="service" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/google/protobuf/protobuf-java/2.6.0/protobuf-java-2.6.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/mysql/mysql-connector-java/8.0.11/mysql-connector-java-8.0.11.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>
