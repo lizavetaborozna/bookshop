@@ -36,7 +36,7 @@ public class OrderDaoImpl implements OrderDAO {
             connection = connectionManager.getConnection();
             if (connection != null) {
                 try (PreparedStatement preparedStatement = connection.prepareStatement(
-                        "INSERT  INTO bookshop.order( iduser, price, status) " +
+                        "INSERT  INTO borozna_e_s.order( iduser, price, status) " +
                                 "VALUES( ?, ?, ?);", PreparedStatement.RETURN_GENERATED_KEYS
                 )) {
                     connection.setAutoCommit(false);
@@ -91,9 +91,9 @@ public class OrderDaoImpl implements OrderDAO {
             connection = connectionManager.getConnection();
             if (connection != null) {
                 try (PreparedStatement preparedStatement = connection.prepareStatement(
-                        "SELECT book.name, book.price FROM orderitems, bookshop.order, book " +
-                                "WHERE bookshop.order.iduser=? AND bookshop.order.idorder=? " +
-                                "AND bookshop.order.idorder=orderitems.idorderItems " +
+                        "SELECT book.name, book.price FROM orderitems, borozna_e_s.order, book " +
+                                "WHERE borozna_e_s.order.iduser=? AND borozna_e_s.order.idorder=? " +
+                                "AND borozna_e_s.order.idorder=orderitems.idorderItems " +
                                 "AND orderitems.itemId=book.idbook;"
                 )) {
                     for (OrderItem orderItem : orderItemList) {
@@ -146,9 +146,9 @@ public class OrderDaoImpl implements OrderDAO {
             connection = connectionManager.getConnection();
             if (connection != null) {
                 try (PreparedStatement preparedStatement = connection.prepareStatement(
-                        "SELECT DISTINCT bookshop.order.idorder, bookshop.order.price, bookshop.order.status FROM orderitems, bookshop.order, book " +
-                                "WHERE bookshop.order.iduser=? AND " +
-                                "bookshop.order.idorder=orderitems.idorderItems AND " +
+                        "SELECT DISTINCT borozna_e_s.order.idorder, borozna_e_s.order.price, borozna_e_s.order.status FROM orderitems, borozna_e_s.order, book " +
+                                "WHERE borozna_e_s.order.iduser=? AND " +
+                                "borozna_e_s.order.idorder=orderitems.idorderItems AND " +
                                 "orderitems.itemId=book.idbook;"
                 )) {
                     connection.setAutoCommit(false);
@@ -200,7 +200,7 @@ public class OrderDaoImpl implements OrderDAO {
                     preparedStatement.setInt(1, orderId);
                     preparedStatement.executeUpdate();
                     try (PreparedStatement preparedStatement1 = connection.prepareStatement(
-                            "DELETE FROM bookshop.order WHERE bookshop.order.idorder=?;"
+                            "DELETE FROM borozna_e_s.order WHERE borozna_e_s.order.idorder=?;"
                     )) {
                         preparedStatement1.setInt(1, orderId);
                         preparedStatement1.executeUpdate();
@@ -233,10 +233,10 @@ public class OrderDaoImpl implements OrderDAO {
             connection = connectionManager.getConnection();
             if (connection != null) {
                 try (PreparedStatement preparedStatement = connection.prepareStatement(
-                        "SELECT DISTINCT bookshop.order.idorder, bookshop.user.id," +
-                                "bookshop.user.login, bookshop.order.price, bookshop.order.status " +
-                                "FROM orderitems, bookshop.order, book, bookshop.user WHERE bookshop.user.id=bookshop.order.iduser" +
-                                " AND bookshop.order.idorder=orderitems.idorderItems " +
+                        "SELECT DISTINCT borozna_e_s.order.idorder, borozna_e_s.user.id," +
+                                "borozna_e_s.user.login, borozna_e_s.order.price, borozna_e_s.order.status " +
+                                "FROM orderitems, borozna_e_s.order, book, borozna_e_s.user WHERE borozna_e_s.user.id=borozna_e_s.order.iduser" +
+                                " AND borozna_e_s.order.idorder=orderitems.idorderItems " +
                                 "AND orderitems.itemId=book.idbook;"
                 )) {
                     ResultSet resultSet = preparedStatement.executeQuery();
@@ -327,7 +327,7 @@ public class OrderDaoImpl implements OrderDAO {
             connection = connectionManager.getConnection();
             if (connection != null) {
                 try (PreparedStatement preparedStatement = connection.prepareStatement(
-                        "UPDATE bookshop.order SET bookshop.order.status=? WHERE bookshop.order.idorder=?;")) {
+                        "UPDATE borozna_e_s.order SET borozna_e_s.order.status=? WHERE borozna_e_s.order.idorder=?;")) {
                     connection.setAutoCommit(false);
                     preparedStatement.setString(1, OrderStatus.statusCompleted);
                     preparedStatement.setInt(2, orderId);

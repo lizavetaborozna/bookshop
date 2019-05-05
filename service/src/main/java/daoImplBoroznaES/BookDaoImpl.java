@@ -272,7 +272,6 @@ public class BookDaoImpl implements BookDAO {
     @Override
     public Double getBookRoman() {
         Connection connection = null;
-        String str = "роман";
         try {
             connection = connectionManager.getConnection();
             if (connection != null) {
