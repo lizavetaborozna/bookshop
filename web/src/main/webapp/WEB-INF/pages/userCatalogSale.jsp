@@ -47,6 +47,7 @@
     </ul>
 </div>
 <form action="${pageContext.request.contextPath}/user" method="post" class="frm">
+    <p style="align-content: center"> Цена со скидкой в 10%</p>
     <c:forEach items="${listBooksSale}" var="book">
         <div class="row">
             <div>

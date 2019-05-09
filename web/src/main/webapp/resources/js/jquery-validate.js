@@ -29,7 +29,7 @@ $.extend( $.fn, {
 			return;
 		}
 
-		// Check if a validatorBoroznaES for this form was already created
+		// Check if a validator for this form was already created
 		var validator = $.data( this[ 0 ], "validator" );
 		if ( validator ) {
 			return validator;
@@ -223,7 +223,7 @@ $.extend( $.expr[ ":" ], {
 	}
 } );
 
-// Constructor for validatorBoroznaES
+// Constructor for validator
 $.validator = function( options, form ) {
 	this.settings = $.extend( true, {}, $.validator.defaults, options );
 	this.currentForm = form;
@@ -597,7 +597,8 @@ $.extend( $.validator, {
 		focusInvalid: function() {
 			if ( this.settings.focusInvalid ) {
 				try {
-					filterBoroznaES( ":visible" )
+					$( this.findLastActive() || this.errorList.length && this.errorList[ 0 ].element || [] )
+					.filter( ":visible" )
 					.focus()
 
 					// Manually trigger focusin event; without it, focusin handler isn't called, findLastActive won't have anything to find
@@ -621,7 +622,11 @@ $.extend( $.validator, {
 				rulesCache = {};
 
 			// Select all valid inputs inside the form (no submit or reset buttons)
-			return filterBoroznaES( function() {
+			return $( this.currentForm )
+			.find( "input, select, textarea, [contenteditable]" )
+			.not( ":submit, :reset, :image, :disabled" )
+			.not( this.settings.ignore )
+			.filter( function() {
 				var name = this.name || $( this ).attr( "name" ); // For contenteditable
 				if ( !name && validator.settings.debug && window.console ) {
 					console.error( "%o has no name assigned", this );
@@ -680,7 +685,7 @@ $.extend( $.validator, {
 				val, idx;
 
 			if ( type === "radio" || type === "checkbox" ) {
-				return filterBoroznaES( ":checked" ).val();
+				return this.findByName( element.name ).filter( ":checked" ).val();
 			} else if ( type === "number" && typeof element.validity !== "undefined" ) {
 				return element.validity.badInput ? "NaN" : $element.val();
 			}
@@ -997,7 +1002,9 @@ $.extend( $.validator, {
 					.replace( /\s+/g, ", #" );
 			}
 
-			return filterBoroznaES( selector );
+			return this
+				.errors()
+				.filter( selector );
 		},
 
 		// See https://api.jquery.com/category/selectors/, for CSS
@@ -1018,7 +1025,7 @@ $.extend( $.validator, {
 				element = this.findByName( element.name );
 			}
 
-			// Always apply ignore filterBoroznaES
+			// Always apply ignore filter
 			return $( element ).not( this.settings.ignore )[ 0 ];
 		},
 
@@ -1036,7 +1043,7 @@ $.extend( $.validator, {
 				return $( "option:selected", element ).length;
 			case "input":
 				if ( this.checkable( element ) ) {
-					return filterBoroznaES( ":checked" ).length;
+					return this.findByName( element.name ).filter( ":checked" ).length;
 				}
 			}
 			return value.length;
@@ -1099,7 +1106,7 @@ $.extend( $.validator, {
 			} );
 		},
 
-		// Cleans up all forms and elements, removes validatorBoroznaES-specific events
+		// Cleans up all forms and elements, removes validator-specific events
 		destroy: function() {
 			this.resetForm();
 

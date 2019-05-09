@@ -52,7 +52,7 @@ public class AuthorizationServlet extends HttpServlet {
                     resp.sendRedirect("/");
             }
         }   else{
-            session.setAttribute("info", "Вы не валидный пользователь Попробуйте зарегистрироваться!");
+            session.setAttribute("info", "Неверный ввод. Попробуйте зарегистрироваться!");
             resp.sendRedirect("/");
         }
     }

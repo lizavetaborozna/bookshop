@@ -1,4 +1,4 @@
-package filterBoroznaES;
+package filter;
 
 import modelBoroznaES.UserRole;
 

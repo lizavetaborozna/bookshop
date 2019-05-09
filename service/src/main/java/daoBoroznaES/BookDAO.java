@@ -9,7 +9,7 @@ public interface BookDAO {
 
     List<Book> getBooksListSort();
 
-    List<Book> getBooksListSale();
+    List<Book>  getBooksListSale();
 
     Book getBooksListSearch(String name);
 

@@ -41,6 +41,16 @@
         </li>
     </ul>
 </div>
-<h3 class="display-3" style="text-align: center">Ваш отчет сформирован</h3>
+<h3 class="display-3" style="text-align: center">Ваш отчет сформирован  в файл формата pdf</h3>
+<p> </p>
+<br>
+<p>
+    <span>  Выручка с ВЫПОЛНЕНЫХ заказов составляет : ${sessionScope.sums}</span> <span> BYN</span>
+</p>
+<br>
+  <p>
+      <span>  Будущая выручка с заказов со статусов ОЖИДАНИЯ : ${sessionScope.sums1}</span> <span> BYN</span>
+  </p>
+<input type="hidden" id="categories" value="${categories}">
 </body>
 </html>

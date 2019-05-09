@@ -23,7 +23,7 @@
 
     <filter>
         <filter-name>logFilter</filter-name>
-        <filter-class>filterBoroznaES.AuthorizationFilter</filter-class>
+        <filter-class>filter.AuthorizationFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>logFilter</filter-name>

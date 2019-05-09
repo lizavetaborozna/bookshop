@@ -35,7 +35,7 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public List<BookDTO> getBooksSale() {
+    public  List<BookDTO>  getBooksSale() {
         return bookConverter.converterBookList(bookDAO.getBooksListSale());
     }
 

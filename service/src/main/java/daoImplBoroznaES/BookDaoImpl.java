@@ -108,47 +108,85 @@ public class BookDaoImpl implements BookDAO {
         return null;
     }
 
-    @Override
-    public List<Book> getBooksListSale() {
-        List<Book> books = new ArrayList<>();
-        Connection connection = null;
-        try {
-            connection = connectionManager.getConnection();
-            if (connection != null) {
-                try (PreparedStatement statement = connection.prepareStatement(
-                        "SELECT * FROM book  order by price ASC limit 2")) {
-                    ResultSet resultSet = statement.executeQuery();
-                    while (resultSet.next()) {
-                        books.add(Book.newBuilder()
-                                .idbook(resultSet.getInt("idbook"))
-                                .name(resultSet.getString("name"))
-                                .author(resultSet.getString("author"))
-                                .genre(resultSet.getString("genre"))
-                                .price(resultSet.getDouble("price"))
-                                .imageName(resultSet.getString("imageName"))
-                                .build()
-                        );
-                    }
-                } catch (SQLException e) {
-                    System.out.println(e.getMessage());
-                    e.printStackTrace();
+//    @Override
+//    public List<Book> getBooksListSale() {
+//        List<Book> books = new ArrayList<>();
+//        Connection connection = null;
+//        try {
+//            connection = connectionManager.getConnection();
+//            if (connection != null) {
+//                try (PreparedStatement statement = connection.prepareStatement(
+//                        "SELECT * FROM book  order by price ASC limit 2")) {
+//                    ResultSet resultSet = statement.executeQuery();
+//                    while (resultSet.next()) {
+//                        books.add(Book.newBuilder()
+//                                .idbook(resultSet.getInt("idbook"))
+//                                .name(resultSet.getString("name"))
+//                                .author(resultSet.getString("author"))
+//                                .genre(resultSet.getString("genre"))
+//                                .price(resultSet.getDouble("price"))
+//                                .imageName(resultSet.getString("imageName"))
+//                                .build()
+//                        );
+//                    }
+//                } catch (SQLException e) {
+//                    System.out.println(e.getMessage());
+//                    e.printStackTrace();
+//                }
+//                return books;
+//            }
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        } finally {
+//            if (connection != null) {
+//                try {
+//                    connection.close();
+//                } catch (SQLException e) {
+//                    System.out.println(e.getMessage());
+//                }
+//            }
+//        }
+//        return null;
+//    }
+@Override
+public List <Book> getBooksListSale() {
+    List<Book> books = new ArrayList<>();
+    Connection connection = null;
+    try {
+        connection = connectionManager.getConnection();
+        if (connection != null) {
+            try (PreparedStatement statement = connection.prepareStatement(
+                    "SELECT * FROM book  order by price DESC limit 1")) {
+                ResultSet resultSet = statement.executeQuery();
+                while (resultSet.next()) {
+                   books.add(Book.newBuilder()
+                            .idbook(resultSet.getInt("idbook"))
+                            .name(resultSet.getString("name"))
+                            .author(resultSet.getString("author"))
+                            .genre(resultSet.getString("genre"))
+                            .price(resultSet.getDouble("price"))
+                            .imageName(resultSet.getString("imageName"))
+                            .build());
                 }
-                return books;
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+                e.printStackTrace();
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            if (connection != null) {
-                try {
-                    connection.close();
-                } catch (SQLException e) {
-                    System.out.println(e.getMessage());
-                }
+            return books;
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    } finally {
+        if (connection != null) {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
             }
         }
-        return null;
     }
-
+    return null;
+}
     @Override
     public Book getBooksListSearch(String name) {
         Connection connection = null;

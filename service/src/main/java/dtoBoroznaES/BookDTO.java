@@ -33,6 +33,10 @@ public class BookDTO {
         return imageName;
     }
 
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
     private BookDTO(Builder builder) {
         idbook = builder.idbook;
         name = builder.name;

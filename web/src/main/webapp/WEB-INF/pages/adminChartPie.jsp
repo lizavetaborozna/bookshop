@@ -4,9 +4,8 @@
     <title>Диаграммы</title>
     <script src="${pageContext.request.contextPath}/resources/js/jquery-3.2.1.min.js"></script>
     <script src="${pageContext.request.contextPath}/resources/js/chart.js"></script>
-    <script src="${pageContext.request.contextPath}/resources/js/jquery-3.2.1.min.js"></script>
+<%--    <script src="${pageContext.request.contextPath}/resources/js/jquery-validate.js"></script>--%>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css">
-    <script src="${pageContext.request.contextPath}/resources/js/jquery-validate.js"></script>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/mainBook.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/menu.css">
     <link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/images/favicon.ico"
